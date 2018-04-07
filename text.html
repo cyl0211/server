@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>upload</title>
+</head>
+
+<body>
+    <form name="form1" id="form1">
+        <p>name:
+            <input type="text" name="name" />
+        </p>
+        <p>gender:
+            <input type="radio" name="gender" value="1" />male
+            <input type="radio" name="gender" value="2" />female</p>
+        <p>stu-number：
+            <input type="text" name="number" />
+        </p>
+        <p>photo:
+            <input type="file" name="photo" id="idFile">
+        </p>
+        <p>
+            <input type="button" name="b1" value="submit" onclick="fsubmit()" />
+        </p>
+    </form>
+    <div id="result"></div>
+    <script type="text/javascript">
+    window.onload = function() {
+        fsubmit();
+    }
+
+    function fsubmit() {
+        var data = new FormData();
+        files = $("#idFile")[0].files;
+        if (files) {
+            data.append("file", files[0]);
+
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: '...',
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function(data, textStatus) {},
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+
+                }
+            });
+        };
+    }
+    </script>
+</body>
+
+</html>
