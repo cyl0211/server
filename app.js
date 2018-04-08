@@ -39,12 +39,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', index);
-// app.use('/img_upload', imgupload);
-
-// var imgupload=require('./imgupload');
- // app.post('/img_upload',imgupload.dataInput);
-
 var multer = require('multer');
 var storage = multer.diskStorage({
     //设置上传后文件路径，uploads文件夹会自动创建。

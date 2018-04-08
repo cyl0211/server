@@ -66,7 +66,7 @@ exports.myIcon = function(req, res) {
     var user = token.decodeToken(tokeninfo);
     var name = user.payload.data.name;
     users.query('SELECT * FROM user WHERE name = "' + name + '";', function(err, rows, fields) {
-        var imgpath = 'https://raw.githubusercontent.com/cyl0211/images/master/' + rows[0].myicon;
+        var imgpath = 'https://raw.githubusercontent.com/cyl0211/server/master/public/images/' + rows[0].myicon;
         res.send(imgpath);
         //     // var content =  fs.readFileSync(imgpath,"binary");
         //     // res.send(content,"binary");
